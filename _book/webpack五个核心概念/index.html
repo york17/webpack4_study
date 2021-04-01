@@ -1,0 +1,431 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>webpack五个核心概念 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../webpack初体验/" />
+    
+    
+    <link rel="prev" href="../webpack4是个什么东西/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    webpack4学习记录笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../webpack4是个什么东西/">
+            
+                <a href="../webpack4是个什么东西/">
+            
+                    
+                    webpack是个什么东西
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    webpack五个核心概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../webpack初体验/">
+            
+                <a href="../webpack初体验/">
+            
+                    
+                    webpack初体验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../webpack样式资源打包/">
+            
+                <a href="../webpack样式资源打包/">
+            
+                    
+                    webpack样式资源打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../webpack - html资源打包/">
+            
+                <a href="../webpack - html资源打包/">
+            
+                    
+                    webpack - html资源打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../webpack - 图片资源打包/">
+            
+                <a href="../webpack - 图片资源打包/">
+            
+                    
+                    webpack - 图片资源打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >webpack五个核心概念</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="webpack&#x4E94;&#x4E2A;&#x6838;&#x5FC3;&#x6982;&#x5FF5;">webpack&#x4E94;&#x4E2A;&#x6838;&#x5FC3;&#x6982;&#x5FF5;</h1>
+<h3 id="&#x5165;&#x53E3;&#x8D77;&#x70B9;&#xFF08;entry-points&#xFF09;">&#x5165;&#x53E3;&#x8D77;&#x70B9;&#xFF08;entry points&#xFF09;</h3>
+<p>&#x5728;webpack&#x914D;&#x7F6E;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x6709;&#x591A;&#x79CD;&#x65B9;&#x5F0F;&#x7684; <code>entry</code> &#x5C5E;&#x6027; &#x3002;</p>
+<p>&#x4F1A;&#x6709;&#x5355;&#x4E2A;&#x5165;&#x53E3; &#x4EE5;&#x53CA; &#x591A;&#x4E2A;&#x5165;&#x53E3;&#x3002;</p>
+<p>&#x76EE;&#x524D;&#x53EA;&#x8003;&#x8651;&#x5355;&#x4E2A;&#x5165;&#x53E3;&#xFF0C;&#x540E;&#x7EED;&#x6709;&#x7528;&#x5230;&#x591A;&#x4E2A;&#x5165;&#x53E3;&#x5728;&#x8865;&#x5145;&#x3002;</p>
+<p><strong>webpack.config.js</strong></p>
+<p>&#x5355;&#x4E2A;&#x5165;&#x53E3;&#x7B80;&#x5355;&#x7528;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
+  entry: <span class="hljs-string">&apos;./path/to/my/entry/file.js&apos;</span>
+};
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x662F;&#x4E0B;&#x9762;&#x7684;&#x7B80;&#x5199;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
+  entry: {
+    main: <span class="hljs-string">&apos;./path/to/my/entry/file.js&apos;</span>
+  }
+};
+</code></pre>
+<h3 id="&#x8F93;&#x51FA;&#xFF08;output&#xFF09;">&#x8F93;&#x51FA;&#xFF08;output&#xFF09;</h3>
+<p>&#x914D;&#x7F6E; <code>output</code> &#x9009;&#x9879;&#x53EF;&#x4EE5;&#x63A7;&#x5236; webpack &#x5982;&#x4F55;&#x5411;&#x786C;&#x76D8;&#x5199;&#x5165;&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x5728; webpack &#x4E2D;&#x914D;&#x7F6E; <code>output</code> &#x5C5E;&#x6027;&#x7684;&#x6700;&#x4F4E;&#x8981;&#x6C42;&#x662F;&#xFF0C;&#x5C06;&#x5B83;&#x7684;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x62EC;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;&#xFF1A;</p>
+<ul>
+<li><p><code>filename</code> &#x7528;&#x4E8E;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;</p>
+</li>
+<li><p><code>path</code>&#x7528;&#x4E8E;&#x5B58;&#x653E;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;</p>
+</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
+  output: {
+    filename: <span class="hljs-string">&apos;bundle.js&apos;</span>,
+    path: __dirname + <span class="hljs-string">&apos;/dist&apos;</span>
+  }
+};
+</code></pre>
+<p>&#x6B64;&#x914D;&#x7F6E;&#x5C06;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684; <code>bundle.js</code> &#x6587;&#x4EF6;&#x8F93;&#x51FA;&#x5230; <code>dist</code> &#x76EE;&#x5F55;&#x4E2D;&#x3002;</p>
+<h3 id="&#x6A21;&#x5F0F;&#xFF08;mode&#xFF09;">&#x6A21;&#x5F0F;&#xFF08;mode&#xFF09;</h3>
+<p>&#x63D0;&#x4F9B; <code>mode</code> &#x914D;&#x7F6E;&#x9009;&#x9879;&#xFF0C;&#x544A;&#x77E5; webpack &#x4F7F;&#x7528;&#x76F8;&#x5E94;&#x73AF;&#x5883;&#x7684;&#x5185;&#x7F6E;&#x4F18;&#x5316;&#x3002;</p>
+<p>&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x6709;&#xFF1A;<code>none</code><em>,</em> <code>development</code> <em>&#x6216;</em> <code>production</code><em>&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>&#x9009;&#x9879;</strong></th>
+<th><strong>&#x63CF;&#x8FF0;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">development</td>
+<td>&#x4F1A;&#x5C06; <code>DefinePlugin</code> &#x4E2D; <code>process.env.NODE_ENV</code> &#x7684;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A; <code>development</code>&#x3002;&#x542F;&#x7528; <code>NamedChunksPlugin</code> &#x548C; <code>NamedModulesPlugin</code>&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">production</td>
+<td>&#x4F1A;&#x5C06; <code>DefinePlugin</code> &#x4E2D; <code>process.env.NODE_ENV</code> &#x7684;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A; <code>production</code>&#x3002;&#x542F;&#x7528; <code>FlagDependencyUsagePlugin</code>, <code>FlagIncludedChunksPlugin</code>, <code>ModuleConcatenationPlugin</code>, <code>NoEmitOnErrorsPlugin</code>, <code>OccurrenceOrderPlugin</code>, <code>SideEffectsFlagPlugin</code> &#x548C; <code>TerserPlugin</code>&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">none</td>
+<td>&#x9000;&#x51FA;&#x4EFB;&#x4F55;&#x9ED8;&#x8BA4;&#x4F18;&#x5316;&#x9009;&#x9879;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x53EA;&#x9700;&#x5728;&#x914D;&#x7F6E;&#x5BF9;&#x8C61;&#x4E2D;&#x63D0;&#x4F9B; <code>mode</code> &#x9009;&#x9879;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
+  mode: <span class="hljs-string">&apos;production&apos;</span>
+};
+</code></pre>
+<p>&#x6216;&#x8005;&#x4ECE; <a href="https://v4.webpack.docschina.org/api/cli/" target="_blank">CLI</a> &#x53C2;&#x6570;&#x4E2D;&#x4F20;&#x9012;&#xFF1A;</p>
+<pre><code class="lang-bash">webpack --mode=production
+</code></pre>
+<h3 id="&#x52A0;&#x8F7D;&#x5668;&#xFF08;loader&#xFF09;">&#x52A0;&#x8F7D;&#x5668;&#xFF08;loader&#xFF09;</h3>
+<p>loader &#x7528;&#x4E8E;&#x5BF9;&#x6A21;&#x5757;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x3002;loader &#x53EF;&#x4EE5;&#x4F7F;&#x4F60;&#x5728; <code>import</code> &#x6216;&quot;&#x52A0;&#x8F7D;&quot;&#x6A21;&#x5757;&#x65F6;&#x9884;&#x5904;&#x7406;&#x6587;&#x4EF6;&#x3002;&#x56E0;&#x6B64;&#xFF0C;loader &#x7C7B;&#x4F3C;&#x4E8E;&#x5176;&#x4ED6;&#x6784;&#x5EFA;&#x5DE5;&#x5177;&#x4E2D;&#x201C;&#x4EFB;&#x52A1;(task)&#x201D;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E86;&#x5904;&#x7406;&#x524D;&#x7AEF;&#x6784;&#x5EFA;&#x6B65;&#x9AA4;&#x7684;&#x5F3A;&#x5927;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>loader &#x53EF;&#x4EE5;&#x5C06;&#x6587;&#x4EF6;&#x4ECE;&#x4E0D;&#x540C;&#x7684;&#x8BED;&#x8A00;&#xFF08;&#x5982; TypeScript&#xFF09;&#x8F6C;&#x6362;&#x4E3A; JavaScript &#x6216;&#x5C06;&#x5185;&#x8054;&#x56FE;&#x50CF;&#x8F6C;&#x6362;&#x4E3A; data URL&#x3002;loader &#x751A;&#x81F3;&#x5141;&#x8BB8;&#x4F60;&#x76F4;&#x63A5;&#x5728; JavaScript &#x6A21;&#x5757;&#x4E2D; <code>import</code> CSS&#x6587;&#x4EF6;&#xFF01;</p>
+<pre><code class="lang-js"><span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-built_in">module</span>: {
+    rules: [
+      { test: <span class="hljs-regexp">/\.css$/</span>, use: <span class="hljs-string">&apos;css-loader&apos;</span> }
+    ]
+  }
+};
+</code></pre>
+<p>&#x5177;&#x4F53;&#x4F7F;&#x7528;loader &#x540E;&#x9762;&#x4F1A;&#x8BB0;&#x5F55;&#xFF1B;</p>
+<h3 id="&#x63D2;&#x4EF6;&#xFF08;plugin&#xFF09;">&#x63D2;&#x4EF6;&#xFF08;plugin&#xFF09;</h3>
+<p>&#x63D2;&#x4EF6;&#x76EE;&#x7684;&#x5728;&#x4E8E;&#x89E3;&#x51B3; loader &#x65E0;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;<strong>&#x5176;&#x4ED6;&#x4E8B;</strong>&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x4F7F;&#x7528;loader &#x540E;&#x9762;&#x4F1A;&#x8BB0;&#x5F55;&#xFF1B;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x7B80;&#x5355;&#x7684;webpack.config.js&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF0C;&#x7531;&#x4E8E;webpack&#x4F7F;&#x7528;&#x7684;&#x662F;Commonjs&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x7528; module.exports&#xFF1B;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-comment">// &#x5165;&#x53E3;&#x8D77;&#x70B9;</span>
+  entry: <span class="hljs-string">&apos;./index.js&apos;</span>,
+  <span class="hljs-comment">// &#x8F93;&#x5165;</span>
+  output: {
+    filename: <span class="hljs-string">&apos;bundle.js&apos;</span>,
+    path: __dirname + <span class="hljs-string">&apos;/dist&apos;</span>
+  },
+  <span class="hljs-comment">// &#x6A21;&#x5F0F;</span>
+  mode: <span class="hljs-string">&apos;development&apos;</span>,
+  <span class="hljs-built_in">module</span>: {
+    <span class="hljs-comment">// rules &#x91CC;&#x9762;&#x5C31;&#x662F;&#x5B58;&#x653E;loader&#x7684;&#x5730;&#x65B9;</span>
+    rules: []
+  },
+  <span class="hljs-comment">// &#x63D2;&#x4EF6;</span>
+  plugins: []
+}
+</code></pre>
+<p>&#x5176;&#x4E2D;&#x5B89;&#x88C5;&#x4E86; webpack &#x548C; webpack-cli</p>
+<p><code>npm install webpack@^4.0.0 webpack-cli@^3.3.10 -D</code></p>
+<p>&#x7136;&#x540E; &#x6267;&#x884C; webpack&#xFF0C;</p>
+<p>&#x5C31;&#x4F1A;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x5230;dist&#x4E0B;&#x3002;</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gp31sgitdmj308a05yglr.jpg" alt="78F0DAF2-0112-4352-AFE7-07079D1FE6B6"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../webpack4是个什么东西/" class="navigation navigation-prev " aria-label="Previous page: webpack是个什么东西">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../webpack初体验/" class="navigation navigation-next " aria-label="Next page: webpack初体验">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"webpack五个核心概念","level":"1.4","depth":1,"next":{"title":"webpack初体验","level":"1.5","depth":1,"path":"webpack初体验/README.md","ref":"webpack初体验/README.md","articles":[]},"previous":{"title":"webpack是个什么东西","level":"1.3","depth":1,"path":"webpack4是个什么东西/README.md","ref":"webpack4是个什么东西/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"webpack五个核心概念/README.md","mtime":"2021-03-31T06:01:41.831Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-01T07:00:47.461Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

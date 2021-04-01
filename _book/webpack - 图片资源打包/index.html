@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>webpack是个什么东西 · GitBook</title>
+        <title>webpack - 图片资源打包 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../webpack五个核心概念/" />
     
-    
-    <link rel="prev" href="../" />
+    <link rel="prev" href="../webpack - html资源打包/" />
     
 
     </head>
@@ -115,9 +113,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="../webpack4是个什么东西/">
             
-                <a href="./">
+                <a href="../webpack4是个什么东西/">
             
                     
                     webpack是个什么东西
@@ -180,9 +178,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="../webpack - 图片资源打包/">
+        <li class="chapter active" data-level="1.8" data-path="./">
             
-                <a href="../webpack - 图片资源打包/">
+                <a href="./">
             
                     
                     webpack - 图片资源打包
@@ -223,7 +221,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >webpack是个什么东西</a>
+        <a href=".." >webpack - 图片资源打包</a>
     </h1>
 </div>
 
@@ -238,13 +236,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="webpack&#x662F;&#x4E2A;&#x4EC0;&#x4E48;&#x4E1C;&#x897F;">webpack&#x662F;&#x4E2A;&#x4EC0;&#x4E48;&#x4E1C;&#x897F;</h1>
-<p><img src="https://webpack.html.cn/img/webpack.png" alt="webpack &#x6982;&#x8FF0;"></p>
-<blockquote>
-<p>&#x672C;&#x8D28;&#x4E0A;&#xFF0C;webpack &#x662F;&#x4E00;&#x4E2A;&#x73B0;&#x4EE3; JavaScript &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x9759;&#x6001;&#x6A21;&#x5757;&#x6253;&#x5305;&#x5DE5;&#x5177;&#x3002;</p>
-</blockquote>
-<p>&#x4EFB;&#x4F55;&#x65F6;&#x5019;&#xFF0C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4F9D;&#x8D56;&#x4E8E;&#x53E6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;webpack &#x5C31;&#x628A;&#x6B64;&#x89C6;&#x4E3A;&#x6587;&#x4EF6;&#x4E4B;&#x95F4;&#x6709; &#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x3002;&#x8FD9;&#x4F7F;&#x5F97; webpack &#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x975E;&#x4EE3;&#x7801;&#x8D44;&#x6E90;(non-code asset)&#xFF08;&#x4F8B;&#x5982; images &#x6216; web fonts&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x4EEC;&#x4F5C;&#x4E3A; <em>&#x4F9D;&#x8D56;</em> &#x63D0;&#x4F9B;&#x7ED9;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;</p>
-<p>&#x5B83;&#x53EF;&#x4EE5;&#x5C06;&#x8BB8;&#x591A;&#x677E;&#x6563;&#x7684;&#x6A21;&#x5757;&#x6309;&#x7167;&#x4F9D;&#x8D56;&#x548C;&#x89C4;&#x5219;&#x6253;&#x5305;&#x6210;&#x7B26;&#x5408;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x90E8;&#x7F72;&#x7684;&#x524D;&#x7AEF;&#x8D44;&#x6E90;&#x3002;&#x8FD8;&#x53EF;&#x4EE5;&#x5C06;&#x6309;&#x9700;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x8FDB;&#x884C;&#x4EE3;&#x7801;&#x5206;&#x9694;&#xFF0C;&#x7B49;&#x5230;&#x5B9E;&#x9645;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x518D;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x3002;&#x901A;&#x8FC7; loader &#x7684;&#x8F6C;&#x6362;&#xFF0C;&#x4EFB;&#x4F55;&#x5F62;&#x5F0F;&#x7684;&#x8D44;&#x6E90;&#x90FD;&#x53EF;&#x4EE5;&#x89C6;&#x4F5C;&#x6A21;&#x5757;&#xFF0C;&#x6BD4;&#x5982; CommonJs &#x6A21;&#x5757;&#x3001; AMD &#x6A21;&#x5757;&#x3001; ES6 &#x6A21;&#x5757;&#x3001;CSS&#x3001;&#x56FE;&#x7247;&#x3001; JSON&#x3001;Coffeescript&#x3001; LESS &#x7B49;&#x3002;</p>
+                                <h1 id="webpack---&#x56FE;&#x7247;&#x8D44;&#x6E90;&#x6253;&#x5305;">webpack - &#x56FE;&#x7247;&#x8D44;&#x6E90;&#x6253;&#x5305;</h1>
 
                                 
                                 </section>
@@ -272,14 +264,10 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 前言">
+                <a href="../webpack - html资源打包/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: webpack - html资源打包">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="../webpack五个核心概念/" class="navigation navigation-next " aria-label="Next page: webpack五个核心概念">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -288,7 +276,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"webpack是个什么东西","level":"1.3","depth":1,"next":{"title":"webpack五个核心概念","level":"1.4","depth":1,"path":"webpack五个核心概念/README.md","ref":"webpack五个核心概念/README.md","articles":[]},"previous":{"title":"前言","level":"1.2","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"webpack4是个什么东西/README.md","mtime":"2021-03-31T02:36:23.444Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-01T07:00:47.461Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"webpack - 图片资源打包","level":"1.8","depth":1,"previous":{"title":"webpack - html资源打包","level":"1.7","depth":1,"path":"webpack - html资源打包/README.md","ref":"webpack - html资源打包/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"webpack - 图片资源打包/README.md","mtime":"2021-04-01T06:59:59.051Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-01T07:00:47.461Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1,3 +1,7 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const path = require('path');
+
 module.exports = {
   // 入口起点
   entry: './src/index.js',
@@ -25,9 +29,48 @@ module.exports = {
           "css-loader",
           "less-loader"
         ]
-      }
+      },
+      {
+        // 处理相关图片资源
+        test: /.(jpg|png|gif)$/,
+        // 如果只用到一个loader，可以直接这样写
+        loader: 'url-loader',
+        options: {
+          // 图片大小于8Kb，会被转成base64  12Kb以下都是适合的，更大的话就不建议
+          limit: 8 * 1024,
+          // 关闭url-loader的es6模块
+          esModule: false,
+          // 给图片重命名，
+          name: '[hash:10].name.[ext]',
+        }
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+      },
+      {
+        // exclude：排除 css,js,html, json, less文件
+        exclude: /\.(css|js|html|json|less)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[hash:10].[ext]'
+        }
+      },
     ]
   },
   // 插件
-  plugins: []
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: `./src/index.html`
+    }),
+    new CleanWebpackPlugin(),
+  ],
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    // 采用gzip压缩
+    compress: true,
+    port: 8000,
+    // 自动打开默认浏览器
+    open: true,
+  }
 }
