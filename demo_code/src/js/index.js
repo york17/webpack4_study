@@ -1,10 +1,10 @@
 // webpack入口文件
-import data from './data.json'
+import data from '../media/data.json'
 console.log(data);
 
-import './index.css'
-import './index.less'
-import './iconfont.css'
+import '../css/index.css'
+import '../css/index.less'
+import '../css/iconfont.css'
 
 function add(x, y) {
   console.log(x + y);

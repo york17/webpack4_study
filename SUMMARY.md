@@ -12,4 +12,5 @@
 * [webpack - 自定义打包文件名](webpack - 自定义打包文件名/README.md)
 * [webpack - 打包iconfont文件](webpack - 打包iconfont文件/README.md)
 * [webpack - devServer](webpack - devServer/README.md)
+* [webpack - 开发环境配置](webpack - 开发环境配置/README.md)
 

@@ -4,10 +4,10 @@ const path = require('path');
 
 module.exports = {
   // 入口起点
-  entry: './src/js/index.js',
+  entry: './src/index.js',
   // 输入
   output: {
-    filename: 'js/bundle.js',
+    filename: 'bundle.js',
     path: __dirname + '/dist'
   },
   // 模式
@@ -42,8 +42,6 @@ module.exports = {
           esModule: false,
           // 给图片重命名，
           name: '[hash:10].name.[ext]',
-          // 输出文件目录
-          outputPath: 'imgs'
         }
       },
       {
@@ -55,9 +53,7 @@ module.exports = {
         exclude: /\.(css|js|html|json|less|jpg|png|gif)$/,
         loader: 'file-loader',
         options: {
-          name: '[hash:10].[ext]',
-          // 输出文件目录
-          outputPath: 'media'
+          name: '[hash:10].[ext]'
         }
       },
     ]
