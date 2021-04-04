@@ -3,3 +3,7 @@ html, body {
   margin: 0;
   background-color: pink;
 }
+
+#box {
+  display: flex;
+}
