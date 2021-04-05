@@ -1,0 +1,572 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>webpack - eslint · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../webpack - js兼容性处理/" />
+    
+    
+    <link rel="prev" href="../webpack - css压缩/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    webpack4学习记录笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../webpack4是个什么东西/">
+            
+                <a href="../webpack4是个什么东西/">
+            
+                    
+                    webpack是个什么东西
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../webpack五个核心概念/">
+            
+                <a href="../webpack五个核心概念/">
+            
+                    
+                    webpack五个核心概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../webpack初体验/">
+            
+                <a href="../webpack初体验/">
+            
+                    
+                    webpack初体验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../webpack样式资源打包/">
+            
+                <a href="../webpack样式资源打包/">
+            
+                    
+                    webpack样式资源打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../webpack - html资源打包/">
+            
+                <a href="../webpack - html资源打包/">
+            
+                    
+                    webpack - html资源打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../webpack - 图片资源打包/">
+            
+                <a href="../webpack - 图片资源打包/">
+            
+                    
+                    webpack - 图片资源打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../webpack - 自动清除上一次构建目录文件/">
+            
+                <a href="../webpack - 自动清除上一次构建目录文件/">
+            
+                    
+                    webpack - 自动清除上一次构建目录文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../webpack - 自定义打包文件名/">
+            
+                <a href="../webpack - 自定义打包文件名/">
+            
+                    
+                    webpack - 自定义打包文件名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../webpack - 打包iconfont文件/">
+            
+                <a href="../webpack - 打包iconfont文件/">
+            
+                    
+                    webpack - 打包iconfont文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../webpack - devServer/">
+            
+                <a href="../webpack - devServer/">
+            
+                    
+                    webpack - devServer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../webpack - 开发环境配置/">
+            
+                <a href="../webpack - 开发环境配置/">
+            
+                    
+                    webpack - 开发环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../webpack - 提取css生成文件/">
+            
+                <a href="../webpack - 提取css生成文件/">
+            
+                    
+                    webpack - 提取css生成文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../webpack - css兼容性处理/">
+            
+                <a href="../webpack - css兼容性处理/">
+            
+                    
+                    webpack - css兼容性处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../webpack - css压缩/">
+            
+                <a href="../webpack - css压缩/">
+            
+                    
+                    webpack - css压缩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.17" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    webpack - eslint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../webpack - js兼容性处理/">
+            
+                <a href="../webpack - js兼容性处理/">
+            
+                    
+                    webpack - js兼容性处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../webpack - js和html压缩/">
+            
+                <a href="../webpack - js和html压缩/">
+            
+                    
+                    webpack - js和html压缩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../webpack - 生产环境配置/">
+            
+                <a href="../webpack - 生产环境配置/">
+            
+                    
+                    webpack - 生产环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../webpack - 性能优化介绍/">
+            
+                <a href="../webpack - 性能优化介绍/">
+            
+                    
+                    webpack - 性能优化介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../webpack - HMR性能优化/">
+            
+                <a href="../webpack - HMR性能优化/">
+            
+                    
+                    webpack - HMR性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >webpack - eslint</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="webpack---eslint">webpack - eslint</h1>
+<blockquote>
+<p>eslint : &#x5B83;&#x7684;&#x76EE;&#x6807;&#x662F;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;&#x5316;&#x7684;javascript&#x4EE3;&#x7801;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;&#x3002;</p>
+</blockquote>
+<p>&#x9700;&#x8981;&#x5B89;&#x88C5;&#x7684;&#x5E93;</p>
+<ul>
+<li>eslint</li>
+<li>eslint-loader</li>
+<li>eslint-config-airbnb-base : &#x6211;&#x4EEC;&#x9009;&#x7528;&#x7684;&#x68C0;&#x6D4B;&#x6807;&#x51C6;&#x4E3A; airbnb &#x516C;&#x53F8;&#x7684;&#x89C4;&#x8303;&#x3002;</li>
+<li>eslint-plugin-import</li>
+</ul>
+<p><img src="https://i.loli.net/2021/04/03/XfilwRCtbpsFcvu.png" alt=""></p>
+<p><code>npm install eslint eslint-loader eslint-config-airbnb-base eslint-plugin-import -D</code></p>
+<p>&#x5F00;&#x59CB;&#x914D;&#x7F6E;&#x3002;</p>
+<p>&#x5176;&#x4E2D;&#x51E0;&#x4E2A;&#x6CE8;&#x610F;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x53EA;&#x68C0;&#x67E5;js&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x81EA;&#x5DF1;&#x5199;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x65E0;&#x9700;&#x68C0;&#x67E5;<code>node_modules</code>&#x4E2D;&#x7684;js&#x6587;&#x4EF6;&#xFF1B;</li>
+<li>&#x9700;&#x8981;&#x5728;<code>package.json</code>&#x6216;<code>.eslintrc</code>&#x4E2D;&#x6DFB;&#x52A0;<code>eslintConfig</code>,&#x6765;&#x8BBE;&#x7F6E;&#x68C0;&#x67E5;&#x89C4;&#x5219;&#xFF1B;</li>
+</ul>
+<p><code>webpack.config.js</code>&#x6DFB;&#x52A0;loader</p>
+<pre><code>  // &#x6DFB;&#x52A0;eslint
+  {
+    // &#x53EA;&#x68C0;&#x67E5;js&#x6587;&#x4EF6;
+    test: /.js$/,
+    loader: &apos;eslint-loader&apos;,
+    // &#x53EA;&#x9700;&#x8981;&#x68C0;&#x67E5;&#x81EA;&#x5DF1;&#x5199;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x68C0;&#x67E5;node_modules
+    exclude: /node_modules/,
+    options: {}
+  }
+</code></pre><p><code>package.json</code>&#x6DFB;&#x52A0;<code>eslintConfig</code>&#x76F8;&#x5173;&#x8BBE;&#x7F6E;&#xFF0C;&#x5177;&#x4F53;&#x8BBE;&#x7F6E;&#xFF1A;<a href="https://www.npmjs.com/package/eslint-config-airbnb-base" target="_blank">eslint-config-airbnb-base</a></p>
+<pre><code>  &quot;eslintConfig&quot;:{
+    &quot;extends&quot;: &quot;airbnb-base&quot;
+  }
+</code></pre><p>&#x76F4;&#x63A5;&#x6784;&#x5EFA;&#xFF0C;&#x4F1A;&#x770B;&#x5230;&#x6784;&#x5EFA;&#x51FA;&#x9519;&#x4E86;&#x3002;</p>
+<p><img src="https://i.loli.net/2021/04/03/6QmPJIhgoycNbSq.png" alt="eslint-error"></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x90FD;&#x662F;eslint&#x7684;&#x89C4;&#x5219;&#x62A5;&#x9519;&#x4E86;&#x3002;</p>
+<p>&#x9519;&#x8BEF;1&#xFF1A;</p>
+<p><code>Expected linebreaks to be &apos;LF&apos; but found &apos;CRLF&apos;</code>&#x5982;&#x679C;&#x4E5F;&#x540C;&#x6837;&#x51FA;&#x73B0;&#x8FD9;&#x4E2A;&#x9519;&#x8BEF;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;<code>eslintConfig</code>&#x4E2D;&#x6DFB;&#x52A0;<code>rules</code></p>
+<pre><code>  &quot;eslintConfig&quot;:{
+    &quot;extends&quot;: &quot;airbnb-base&quot;,
+    &quot;rules&quot;: {
+      &quot;linebreak-style&quot;: [&quot;off&quot;, &quot;windows&quot;]
+    }
+  }
+</code></pre><p>&#x91CD;&#x65B0;&#x6784;&#x5EFA;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230; &#x5C11;&#x4E86; &#x521A;&#x624D;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x5176;&#x4F59;&#x7684;&#x9519;&#x8BEF;&#x5C31;&#x6839;&#x636E;&#x5177;&#x4F53;&#x9519;&#x8BEF;&#xFF0C;&#x5177;&#x4F53;&#x5904;&#x7406;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;<code>fix</code>&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x4FEE;&#x590D;</p>
+<pre><code>// &#x6DFB;&#x52A0;eslint
+{
+  // &#x53EA;&#x68C0;&#x67E5;js&#x6587;&#x4EF6;
+  test: /.js$/,
+  loader: &apos;eslint-loader&apos;,
+  // &#x53EA;&#x9700;&#x8981;&#x68C0;&#x67E5;&#x81EA;&#x5DF1;&#x5199;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x68C0;&#x67E5;node_modules
+  exclude: /node_modules/,
+  options: {
+    fix: true,
+  }
+},
+</code></pre><p><strong>&#x6CE8;&#x610F;&#xFF1A;&#x540E;&#x7EED;&#x7684;&#x5DE5;&#x7A0B;&#x4F1A;&#x5148;&#x5C06;<code>eslint</code>&#x5C4F;&#x853D;&#x6389;</strong></p>
+<p>eslint&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x5C4F;&#x853D;&#x6821;&#x9A8C;&#xFF1A;</p>
+<ul>
+<li>eslint-disable-next-line&#xFF1A;&#x5FFD;&#x7565;&#x4E0B;&#x9762;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x7684;&#x6821;&#x9A8C;&#xFF1B;</li>
+<li>eslint-disable&#xFF1A;&#x5FFD;&#x7565;&#x8BE5;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6821;&#x9A8C;&#x8B66;&#x544A;&#xFF1B;</li>
+</ul>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x89C4;&#x5219;&#xFF0C;&#x5C31;&#x5728;<code>eslintConfig&#x7684;&#x4E2D;rules</code>&#x8BBE;&#x7F6E;&#x5373;&#x53EF;&#x3002;&#x5177;&#x4F53;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="https://cloud.tencent.com/developer/chapter/12618" target="_blank">eslint rules</a>&#x3002;</p>
+<p>&#x672C;&#x7AE0;&#x7ED3;&#x675F;&#xFF01;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../webpack - css压缩/" class="navigation navigation-prev " aria-label="Previous page: webpack - css压缩">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../webpack - js兼容性处理/" class="navigation navigation-next " aria-label="Next page: webpack - js兼容性处理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"webpack - eslint","level":"1.17","depth":1,"next":{"title":"webpack - js兼容性处理","level":"1.18","depth":1,"path":"webpack - js兼容性处理/README.md","ref":"webpack - js兼容性处理/README.md","articles":[]},"previous":{"title":"webpack - css压缩","level":"1.16","depth":1,"path":"webpack - css压缩/README.md","ref":"webpack - css压缩/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"webpack - eslint/README.md","mtime":"2021-04-04T15:02:22.077Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-04T17:00:48.361Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

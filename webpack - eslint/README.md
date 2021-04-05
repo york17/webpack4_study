@@ -83,6 +83,24 @@
 
 
 
+也可以通过设置`fix`进行自动修复
+
+```
+// 添加eslint
+{
+  // 只检查js文件
+  test: /.js$/,
+  loader: 'eslint-loader',
+  // 只需要检查自己写的代码，不需要检查node_modules
+  exclude: /node_modules/,
+  options: {
+    fix: true,
+  }
+},
+```
+
+
+
 **注意：后续的工程会先将`eslint`屏蔽掉**
 
 

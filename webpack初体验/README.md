@@ -101,10 +101,11 @@ html, body {
 }
 ```
 
-然后在入口文件`index.js` import  `index.css`文件，重新构建，构建打包会报错。
+然后在入口文件`index.js` import  `index.css`文件，重新构建，构建打包会报错。说明webpack本身不可以打包css，需要通过其他方式打包，将在后续介绍。
 
 ![image-20210331165317457](https://tva1.sinaimg.cn/large/008eGmZEly1gp36t7l6qdj30w207fta0.jpg)
 
 
 
 简易webpack项目 到此结束！！！
+

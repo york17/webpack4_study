@@ -3,8 +3,8 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const path = require('path');
 
 module.exports = {
-  // 入口起点
-  entry: './src/index.js',
+  // 入口起点，这里要根据目录结构来设置
+  entry: './src/js/index.js',
   // 输入
   output: {
     filename: 'bundle.js',
@@ -72,5 +72,8 @@ module.exports = {
     port: 8000,
     // 自动打开默认浏览器
     open: true,
-  }
+    // 开始HMR功能
+    hot: true,
+  },
+  devtool: 'cheap-source-map',
 }
