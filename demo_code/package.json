@@ -64,5 +64,8 @@
   "sideEffects": [
     "@babel/polyfill",
     "*.css"
-  ]
+  ],
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }

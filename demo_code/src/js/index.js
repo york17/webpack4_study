@@ -16,7 +16,7 @@ function add(x, y) {
   console.log(x + y);
 }
 
-console.log(add(1, 2))();
+// console.log(add(1, 2))();
 console.log(add(2, 2));
 
 const name = "lee";
@@ -33,3 +33,16 @@ if (module.hot) {
     hmr();
   })
 }
+
+// import _ from 'lodash'
+// console.log(_);
+
+// import $ from './jquery'
+// console.log($);
+
+// 将other_entrance.js 单独成一个chunk
+import(/* webpackChunkName: 'test' */'./other_entrance').then(res => {
+  console.log('other_entrance.js 文件加载成功', res);
+}).catch(err => {
+  console.log('other_entrance.js 文件加载失败', err);
+})

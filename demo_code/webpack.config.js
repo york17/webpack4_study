@@ -33,11 +33,16 @@ const miniCssExtractPluginLoaderConfig = {
 // process.env.NODE_ENV = "development";
 
 module.exports = {
-  // 入口起点
+  // 入口起点，单入口
   entry: './src/js/index.js',
-  // 输入
+  // 多入口
+  // entry: {
+  //   main: './src/js/index.js',
+  //   test: './src/js/other_entrance.js',
+  // },
+  // 输出
   output: {
-    filename: 'js/bundle.js',
+    filename: 'js/[name].[contenthash:10].js',
     path: __dirname + '/dist'
   },
   // 模式
@@ -185,5 +190,14 @@ module.exports = {
     open: true,
     // 开始HMR功能
     hot: true,
-  }
+  },
+  /**
+   * 1、将用到node_modules的库，单独打包成一个chunk；
+   * 2、当有多个入口的时候，会分析是否存在公共文件，如果存在，那么会单独打包成一个chunk(公共文件不能太小);
+   */
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
 }
