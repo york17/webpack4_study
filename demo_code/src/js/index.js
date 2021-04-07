@@ -1,5 +1,5 @@
 // webpack入口文件
-
+console.log('index.js文件被加载了');
 // import '@babel/polyfill'  //全部js兼容性
 
 import data from '../media/data.json'
@@ -41,8 +41,21 @@ if (module.hot) {
 // console.log($);
 
 // 将other_entrance.js 单独成一个chunk
-import(/* webpackChunkName: 'test' */'./other_entrance').then(res => {
-  console.log('other_entrance.js 文件加载成功', res);
-}).catch(err => {
-  console.log('other_entrance.js 文件加载失败', err);
+// import(/* webpackChunkName: 'test' */'./other_entrance').then(res => {
+//   console.log('other_entrance.js 文件加载成功', res);
+// }).catch(err => {
+//   console.log('other_entrance.js 文件加载失败', err);
+// })
+
+// 懒加载与预加载
+// import {print} from './lazyload'
+document.getElementById('btn').addEventListener('click', function(){
+  console.log('点击了加载文件按钮');
+  // print()
+  // import(/* webpackChunkName: 'lazyload' */'./lazyload').then(({print}) => {
+  //   print();
+  // })
+  import(/* webpackChunkName: 'lazyload', webpackPrefetch: true */'./lazyload').then(({print}) => {
+    print();
+  })
 })
