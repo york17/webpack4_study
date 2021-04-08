@@ -28,7 +28,6 @@
 * [webpack - tree shaking](webpack - tree shaking/README.md)
 * [webpack - code split](webpack - code split/README.md)
 * [webpack - js懒加载和预加载](webpack - js懒加载和预加载/README.md)
-* [webpack - PWA](webpack - PWA/README.md)
 * [webpack - 多进程打包](webpack - 多进程打包/README.md)
 * [webpack - externals](webpack - externals/README.md)
 * [webpack - dll](webpack - dll/README.md)

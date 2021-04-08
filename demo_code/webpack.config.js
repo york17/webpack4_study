@@ -6,6 +6,8 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // 单独压缩css文件
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
+const webpack = require('webpack');
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
 
 // postcss loader 配置提取
 const postcssLoaderConfig = {
@@ -120,32 +122,43 @@ module.exports = {
           {
             test: /.js$/,
             exclude: /node_modules/,
-            loader: 'babel-loader',
-            options: {
-              // 预设babel要做哪种兼容，目前使用的是 @babel/preset-env
-              presets: [
-                [
-                  '@babel/preset-env',
-                  // 按需加载兼容性
-                  {
-                    // 按需加载
-                    useBuiltIns: 'usage',
-                    // 指定core-js版本
-                    corejs: {
-                      version: 3
-                    },
-                    // 兼容哪些浏览器
-                    targets: {
-                      ie: '9',
-                      chrome: '50',
-                      // ...
-                    }
-                  }
-                ]
-              ],
-              // 开启babel缓存
-              cacheDirectory: true,
-            }
+            use: [
+              // 开启多线程打包
+              // {
+              //   loader: 'thread-loader',
+              //   options: {
+              //     workers: 2,  //2个进程
+              //   }
+              // },
+              {
+                loader: 'babel-loader',
+                options: {
+                  // 预设babel要做哪种兼容，目前使用的是 @babel/preset-env
+                  presets: [
+                    [
+                      '@babel/preset-env',
+                      // 按需加载兼容性
+                      {
+                        // 按需加载
+                        useBuiltIns: 'usage',
+                        // 指定core-js版本
+                        corejs: {
+                          version: 3
+                        },
+                        // 兼容哪些浏览器
+                        targets: {
+                          ie: '9',
+                          chrome: '50',
+                          // ...
+                        }
+                      }
+                    ]
+                  ],
+                  // 开启babel缓存
+                  cacheDirectory: true,
+                }
+              }
+            ]
           },
         ]
       }
@@ -179,7 +192,16 @@ module.exports = {
         }
       },
       canPrint: true //是否将插件信息打印到控制台
-    })
+    }),
+    // dll
+    // 告诉webpack哪些库不参与打包
+    // new webpack.DllReferencePlugin({
+    //   manifest: path.resolve(__dirname, 'dll/manifest.json')
+    // }),
+    // // 之前打包好的库，一起打包出去，并且在html中自动引入
+    // new AddAssetHtmlWebpackPlugin({
+    //   filepath: path.resolve(__dirname, 'dll/vendors.dll.js')
+    // }),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
@@ -195,9 +217,13 @@ module.exports = {
    * 1、将用到node_modules的库，单独打包成一个chunk；
    * 2、当有多个入口的时候，会分析是否存在公共文件，如果存在，那么会单独打包成一个chunk(公共文件不能太小);
    */
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all'
+  //   }
+  // },
+  externals: {
+    // 拒绝lodash打包
+    lodash: '_', 
+  }
 }
