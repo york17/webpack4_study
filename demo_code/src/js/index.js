@@ -1,5 +1,4 @@
 // webpack入口文件
-console.log('index.js文件被加载了');
 // import '@babel/polyfill'  //全部js兼容性
 
 // import data from '../media/data.json'
@@ -61,4 +60,11 @@ console.log('index.js文件被加载了');
 // })
 
 // externals
-import _ from 'lodash'
+// import _ from 'lodash';
+
+// console.log('index.js文件被加载了');
+
+// runtimeChunk测试
+import('./other_entrance.js').then(({print})=>{
+  print();
+}).catch(err => {});
