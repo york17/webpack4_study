@@ -1,0 +1,923 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>webpack - optimization详细配置 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../webpack - devServer详细配置/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    webpack4学习记录笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../webpack4是个什么东西/">
+            
+                <a href="../webpack4是个什么东西/">
+            
+                    
+                    webpack是个什么东西
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../webpack五个核心概念/">
+            
+                <a href="../webpack五个核心概念/">
+            
+                    
+                    webpack五个核心概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../webpack初体验/">
+            
+                <a href="../webpack初体验/">
+            
+                    
+                    webpack初体验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../webpack样式资源打包/">
+            
+                <a href="../webpack样式资源打包/">
+            
+                    
+                    webpack样式资源打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../webpack - html资源打包/">
+            
+                <a href="../webpack - html资源打包/">
+            
+                    
+                    webpack - html资源打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../webpack - 图片资源打包/">
+            
+                <a href="../webpack - 图片资源打包/">
+            
+                    
+                    webpack - 图片资源打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../webpack - 自动清除上一次构建目录文件/">
+            
+                <a href="../webpack - 自动清除上一次构建目录文件/">
+            
+                    
+                    webpack - 自动清除上一次构建目录文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../webpack - 自定义打包文件名/">
+            
+                <a href="../webpack - 自定义打包文件名/">
+            
+                    
+                    webpack - 自定义打包文件名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../webpack - 打包iconfont文件/">
+            
+                <a href="../webpack - 打包iconfont文件/">
+            
+                    
+                    webpack - 打包iconfont文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../webpack - devServer/">
+            
+                <a href="../webpack - devServer/">
+            
+                    
+                    webpack - devServer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../webpack - 开发环境配置/">
+            
+                <a href="../webpack - 开发环境配置/">
+            
+                    
+                    webpack - 开发环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../webpack - 提取css生成文件/">
+            
+                <a href="../webpack - 提取css生成文件/">
+            
+                    
+                    webpack - 提取css生成文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../webpack - css兼容性处理/">
+            
+                <a href="../webpack - css兼容性处理/">
+            
+                    
+                    webpack - css兼容性处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../webpack - css压缩/">
+            
+                <a href="../webpack - css压缩/">
+            
+                    
+                    webpack - css压缩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../webpack - eslint/">
+            
+                <a href="../webpack - eslint/">
+            
+                    
+                    webpack - eslint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../webpack - js兼容性处理/">
+            
+                <a href="../webpack - js兼容性处理/">
+            
+                    
+                    webpack - js兼容性处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../webpack - js和html压缩/">
+            
+                <a href="../webpack - js和html压缩/">
+            
+                    
+                    webpack - js和html压缩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../webpack - 生产环境配置/">
+            
+                <a href="../webpack - 生产环境配置/">
+            
+                    
+                    webpack - 生产环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../webpack - 性能优化介绍/">
+            
+                <a href="../webpack - 性能优化介绍/">
+            
+                    
+                    webpack - 性能优化介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../webpack - HMR性能优化/">
+            
+                <a href="../webpack - HMR性能优化/">
+            
+                    
+                    webpack - HMR性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../webpack - source-map/">
+            
+                <a href="../webpack - source-map/">
+            
+                    
+                    webpack - source-map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="../webpack - oneOf/">
+            
+                <a href="../webpack - oneOf/">
+            
+                    
+                    webpack - oneOf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="../webpack - 缓存/">
+            
+                <a href="../webpack - 缓存/">
+            
+                    
+                    webpack - 缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="../webpack - tree shaking/">
+            
+                <a href="../webpack - tree shaking/">
+            
+                    
+                    webpack - tree shaking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="../webpack - code split/">
+            
+                <a href="../webpack - code split/">
+            
+                    
+                    webpack - code split
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" data-path="../webpack - js懒加载和预加载/">
+            
+                <a href="../webpack - js懒加载和预加载/">
+            
+                    
+                    webpack - js懒加载和预加载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" data-path="../webpack - 多进程打包/">
+            
+                <a href="../webpack - 多进程打包/">
+            
+                    
+                    webpack - 多进程打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.30" data-path="../webpack - externals/">
+            
+                <a href="../webpack - externals/">
+            
+                    
+                    webpack - externals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.31" data-path="../webpack - dll/">
+            
+                <a href="../webpack - dll/">
+            
+                    
+                    webpack - dll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.32" data-path="../webpack - entry详细配置/">
+            
+                <a href="../webpack - entry详细配置/">
+            
+                    
+                    webpack - entry详细配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.33" data-path="../webpack - output详细配置/">
+            
+                <a href="../webpack - output详细配置/">
+            
+                    
+                    webpack - output详细配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.34" data-path="../webpack - module详细配置/">
+            
+                <a href="../webpack - module详细配置/">
+            
+                    
+                    webpack - module详细配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.35" data-path="../webpack - resolve详细配置/">
+            
+                <a href="../webpack - resolve详细配置/">
+            
+                    
+                    webpack - resolve详细配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.36" data-path="../webpack - devServer详细配置/">
+            
+                <a href="../webpack - devServer详细配置/">
+            
+                    
+                    webpack - devServer详细配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.37" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    webpack - optimization详细配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >webpack - optimization详细配置</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="webpack---optimization&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;">webpack - optimization&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;</h1>
+<ul>
+<li><p>optimization &#x4E0B;&#x7684; splitChunks &#x914D;&#x7F6E;&#x5185;&#x5BB9;</p>
+<pre><code>  splitChunks: {
+    chunks: &apos;all&apos;
+    // &#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0D;&#x5199;~
+    minSize: 30 * 1024, // &#x5206;&#x5272;&#x7684;chunk&#x6700;&#x5C0F;&#x4E3A;30kb
+    maxSize: 0, // &#x6700;&#x5927;&#x6CA1;&#x6709;&#x9650;&#x5236;
+    minChunks: 1, // &#x8981;&#x63D0;&#x53D6;&#x7684;chunk&#x6700;&#x5C11;&#x88AB;&#x5F15;&#x7528;1&#x6B21;
+    maxAsyncRequests: 5, // &#x6309;&#x9700;&#x52A0;&#x8F7D;&#x65F6;&#x5E76;&#x884C;&#x52A0;&#x8F7D;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;
+    maxInitialRequests: 3, // &#x5165;&#x53E3;js&#x6587;&#x4EF6;&#x6700;&#x5927;&#x5E76;&#x884C;&#x8BF7;&#x6C42;&#x6570;&#x91CF;
+    automaticNameDelimiter: &apos;~&apos;, // &#x540D;&#x79F0;&#x8FDE;&#x63A5;&#x7B26;
+    name: true, // &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x547D;&#x540D;&#x89C4;&#x5219;
+    cacheGroups: {
+      // &#x5206;&#x5272;chunk&#x7684;&#x7EC4;
+      // node_modules&#x6587;&#x4EF6;&#x4F1A;&#x88AB;&#x6253;&#x5305;&#x5230; vendors &#x7EC4;&#x7684;chunk&#x4E2D;&#x3002;--&gt; vendors~xxx.js
+      // &#x6EE1;&#x8DB3;&#x4E0A;&#x9762;&#x7684;&#x516C;&#x5171;&#x89C4;&#x5219;&#xFF0C;&#x5982;&#xFF1A;&#x5927;&#x5C0F;&#x8D85;&#x8FC7;30kb&#xFF0C;&#x81F3;&#x5C11;&#x88AB;&#x5F15;&#x7528;&#x4E00;&#x6B21;&#x3002;
+      vendors: {
+        test: /[\\/]node_modules[\\/]/,
+        // &#x4F18;&#x5148;&#x7EA7;
+        priority: -10
+      },
+      default: {
+        // &#x8981;&#x63D0;&#x53D6;&#x7684;chunk&#x6700;&#x5C11;&#x88AB;&#x5F15;&#x7528;2&#x6B21;
+        minChunks: 2,
+        // &#x4F18;&#x5148;&#x7EA7;
+        priority: -20,
+        // &#x5982;&#x679C;&#x5F53;&#x524D;&#x8981;&#x6253;&#x5305;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x548C;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x88AB;&#x63D0;&#x53D6;&#x7684;&#x6A21;&#x5757;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#xFF0C;&#x5C31;&#x4F1A;&#x590D;&#x7528;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x91CD;&#x65B0;&#x6253;&#x5305;&#x6A21;&#x5757;
+        reuseExistingChunk: true
+      } 
+    }
+  },
+</code></pre></li>
+</ul>
+<ul>
+<li><p>runtimeChunk&#xFF1A; &#x5C06;&#x5F53;&#x524D;&#x6A21;&#x5757;&#x7684;&#x8BB0;&#x5F55;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x7684;hash&#x5355;&#x72EC;&#x6253;&#x5305;&#x4E3A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6; runtime&#xFF1B;</p>
+<pre><code>   runtimeChunk: {
+      name: entrypoint =&gt; `runtime-${entrypoint.name}`
+    },
+</code></pre><p>runtimeChunk&#x53EF;&#x4EE5;&#x4E0B;&#x9762;&#x7684;&#x8FD9;&#x79CD;&#x95EE;&#x9898;&#xFF0C;</p>
+<p>index.js&#x6587;&#x4EF6;&#x4E2D;import other_entrance.js&#xFF0C;&#x5F53; other_entrance.js &#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x4E86;&#xFF08;index.js&#x6587;&#x4EF6;&#x6CA1;&#x6709;&#x505A;&#x4EFB;&#x4F55;&#x4FEE;&#x6539;&#xFF09;&#xFF0C;&#x4F46;&#x662F;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x90FD;&#x88AB;&#x91CD;&#x65B0;&#x6253;&#x5305;&#x4E86;&#x3002;</p>
+<ul>
+<li>&#x5176;&#x4E2D;&#x9700;&#x8981;&#x5C06;<code>mode&#xFF1A;&#x8BBE;&#x7F6E;&#x4E3A;production</code>&#xFF1B;</li>
+<li><code>output&#x7684;chunkFilename&#x8BBE;&#x7F6E;&#x4E3A; &apos;js/[name]_[contenthash:10]_chunk.js&apos;</code>;</li>
+<li>&#x4E0D;&#x8981;&#x8BBE;&#x7F6E;runtimeChunk&#xFF1B;</li>
+</ul>
+</li>
+</ul>
+<p>  &#x6784;&#x5EFA;&#x9879;&#x76EE;</p>
+<p>  <code>npm run dev-detail</code></p>
+<p>  <img src="https://i.loli.net/2021/04/09/FHXhI6yrMjU3AvL.png" alt=""></p>
+<p>  &#x5728;<code>main.7aaa60d28b.js</code>&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;<code>1_19cc04eb11_chunk.js</code>,&#x5982;&#x679C;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x4FEE;&#x6539;&#x4E86;<code>other_entrance.js</code>&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x6253;&#x5305;&#xFF0C;&#x4F1A;&#x770B;&#x5230;&#xFF0C;&#x4E4B;&#x524D;<code>main.7aaa60d28b.js</code>&#x4F1A;&#x88AB;&#x8986;&#x76D6;&#x3002;</p>
+<p>  <img src="https://tva1.sinaimg.cn/large/008eGmZEly1gpdm20tzpwj309l03nt8r.jpg" alt="image-20210409171623887"></p>
+<p>&#x200B;    </p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x52A0;&#x4E0A; runtimeChunk &#x914D;&#x7F6E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5F53;&#x6784;&#x5EFA;&#x540E;&#x7684;&#x76EE;&#x5F55;&#x591A;&#x4E86;runtime&#x6587;&#x4EF6;;</p>
+<p><img src="https://i.loli.net/2021/04/09/ZWfcFPDmIQXaSnk.jpg" alt=""></p>
+<p>&#x5F53;&#x518D;&#x6B21;&#x4FEE;&#x6539;<code>other_entrance.js</code>&#x6587;&#x4EF6;&#xFF0C;&#x518D;&#x6B21;&#x6253;&#x5305;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;main&#x6587;&#x4EF6;&#x6CA1;&#x6709;&#x6539;&#x53D8;&#xFF0C;&#x6539;&#x53D8;&#x7684;&#x662F;runtime&#x6587;&#x4EF6;&#xFF1A;</p>
+<p><img src="https://i.loli.net/2021/04/09/qmcgHWwvnBs1FAG.png" alt=""></p>
+<ul>
+<li><p>minimizer&#xFF1A;&#x914D;&#x7F6E;&#x7684;&#x538B;&#x7F29;&#xFF0C;&#x9700;&#x8981;&#x5B89;&#x88C5;terser-webpack-plugin</p>
+<p><code>npm install terser-webpack-plugin@^4.2.3 -D</code></p>
+<pre><code>minimizer: [
+  // &#x914D;&#x7F6E;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x7684;&#x538B;&#x7F29;&#x65B9;&#x6848;&#xFF1A;js&#x548C;css
+  new TerserWebpackPlugin({
+    // &#x5F00;&#x542F;&#x7F13;&#x5B58;
+    cache: true,
+    // &#x5F00;&#x542F;&#x591A;&#x8FDB;&#x7A0B;&#x6253;&#x5305;
+    parallel: true,
+    // &#x542F;&#x52A8;source-map
+    sourceMap: true
+  })
+]
+</code></pre></li>
+</ul>
+<p>&#x6574;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code>// webpack.detail.js
+
+const path = require(&apos;path&apos;);
+const {
+  CleanWebpackPlugin
+} = require(&apos;clean-webpack-plugin&apos;)
+const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);
+const TerserWebpackPlugin = require(&apos;terser-webpack-plugin&apos;)
+
+
+module.exports = {
+  entry: &apos;./src/js/index.js&apos;,
+  // entry: [&apos;./src/js/index.js&apos;, &apos;./src/js/other_entrance.js&apos;],
+  // entry: {
+  //   main: &apos;./src/js/index.js&apos;,
+  //   other: &apos;./src/js/other_entrance.js&apos;
+  // },
+  output: {
+    // &#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#xFF0C; &#x76EE;&#x5F55;+&#x6587;&#x4EF6;&#x540D;
+    filename: &apos;js/[name].[contenthash:10].js&apos;,
+    // &#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x6240;&#x6709;&#x8D44;&#x6E90;&#x8F93;&#x51FA;&#x7684;&#x516C;&#x5171;&#x76EE;&#x5F55;
+    path: path.resolve(__dirname, &apos;dist&apos;),
+    // &#x6240;&#x6709;&#x8D44;&#x6E90;&#x5F15;&#x5165;&#x516C;&#x5171;&#x8DEF;&#x5F84;&#x524D;&#x7F00;
+    publicPath: &apos;/&apos;,
+    // &#x975E;&#x5165;&#x53E3;chunk&#x7684;&#x540D;&#x79F0;
+    chunkFilename: &apos;js/[name]_[contenthash:10]_chunk.js&apos;,
+    // &#x5411;&#x5916;&#x66B4;&#x9732;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x53D8;&#x91CF;&#x540D;&#x4E3A; [name]&#x7684;&#x503C;&#xFF0C;
+    // library: &apos;[name]&apos;,
+  },
+  module: {
+    rules: [
+      // loader&#x7684;&#x914D;&#x7F6E;
+      {
+        test: /\.css$/,
+        // &#x591A;&#x4E2A;loader&#x7528;use
+        use: [&apos;style-loader&apos;, &apos;css-loader&apos;]
+      },
+      // {
+      //   test: /\.js$/,
+      //   // &#x6392;&#x9664;node_modules&#x4E0B;&#x7684;js&#x6587;&#x4EF6;
+      //   exclude: /node_modules/,
+      //   // &#x53EA;&#x68C0;&#x67E5; src &#x4E0B;&#x7684;js&#x6587;&#x4EF6;
+      //   include: path.resolve(__dirname, &apos;src&apos;),
+      //   // &#x4F18;&#x5148;&#x6267;&#x884C;
+      //   enforce: &apos;pre&apos;,
+      //   // &#x5355;&#x4E2A;loader&#x7528;loader
+      //   loader: &apos;eslint-loader&apos;,
+      //   options: {
+      //     fix: true,
+      //   }
+      // },
+      {
+        // &#x4EE5;&#x4E0B;&#x914D;&#x7F6E;&#x53EA;&#x4F1A;&#x751F;&#x6548;&#x4E00;&#x4E2A;
+        oneOf: []
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: `./src/index.html`,
+    }),
+    new CleanWebpackPlugin(),
+  ],
+  mode: &apos;production&apos;,
+  resolve: {
+    alias: {
+      &apos;@&apos;: path.resolve(__dirname, &apos;src&apos;),
+    },
+    extensions: [&apos;.js&apos;, &apos;json&apos;, &apos;vue&apos;],
+    modules: [&apos;node_modules&apos;]
+  },
+  devServer: {
+    // &#x8FD0;&#x884C;&#x4EE3;&#x7801;&#x7684;&#x76EE;&#x5F55;
+    contentBase: path.resolve(__dirname, &apos;dist&apos;),
+    // &#x76D1;&#x89C6; contentBase &#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#xFF0C;&#x4E00;&#x65E6;&#x6587;&#x4EF6;&#x53D8;&#x5316;&#x5C31;&#x4F1A; reload
+    watchContentBase: true,
+    watchOptions: {
+      // &#x5FFD;&#x7565;&#x6587;&#x4EF6;
+      ignored: /node_modules/
+    },
+    // &#x542F;&#x52A8;gzip&#x538B;&#x7F29;
+    compress: true,
+    // &#x7AEF;&#x53E3;&#x53F7;
+    port: 5000,
+    // &#x57DF;&#x540D;
+    host: &apos;localhost&apos;,
+    // &#x81EA;&#x52A8;&#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;
+    open: true,
+    // &#x5F00;&#x542F;HMR&#x529F;&#x80FD;
+    hot: true,
+    // &#x4E0D;&#x8981;&#x663E;&#x793A;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;
+    clientLogLevel: &apos;none&apos;,
+    // &#x63A7;&#x5236;&#x53F0;&#x9664;&#x4E86;&#x4E00;&#x4E9B;&#x57FA;&#x672C;&#x542F;&#x52A8;&#x4FE1;&#x606F;&#x4EE5;&#x5916;&#xFF0C;&#x5176;&#x4ED6;&#x5185;&#x5BB9;&#x90FD;&#x4E0D;&#x8981;&#x663E;&#x793A;
+    quiet: true,
+    // &#x5982;&#x679C;&#x51FA;&#x9519;&#x4E86;&#xFF0C;&#x4E0D;&#x8981;&#x5168;&#x5C4F;&#x63D0;&#x793A;~
+    overlay: false,
+    // &#x670D;&#x52A1;&#x5668;&#x4EE3;&#x7406; --&gt; &#x89E3;&#x51B3;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x8DE8;&#x57DF;&#x95EE;&#x9898;
+    proxy: {
+      // &#x4E00;&#x65E6;devServer(5000)&#x670D;&#x52A1;&#x5668;&#x63A5;&#x53D7;&#x5230; /api/xxx &#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x5C31;&#x4F1A;&#x628A;&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x5230;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;(3000)
+      &apos;/api&apos;: {
+        target: &apos;http://localhost:3000&apos;,
+        // &#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x8BF7;&#x6C42;&#x8DEF;&#x5F84;&#x91CD;&#x5199;&#xFF1A;&#x5C06; /api/xxx --&gt; /xxx &#xFF08;&#x53BB;&#x6389;/api&#xFF09;
+        pathRewrite: {
+          &apos;^/api&apos;: &apos;&apos;
+        }
+      }
+    }
+  },
+  optimization: {
+    splitChunks: {
+      chunks: &apos;all&apos;
+      // &#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0D;&#x5199;~
+      /* minSize: 30 * 1024, // &#x5206;&#x5272;&#x7684;chunk&#x6700;&#x5C0F;&#x4E3A;30kb
+      maxSize: 0, // &#x6700;&#x5927;&#x6CA1;&#x6709;&#x9650;&#x5236;
+      minChunks: 1, // &#x8981;&#x63D0;&#x53D6;&#x7684;chunk&#x6700;&#x5C11;&#x88AB;&#x5F15;&#x7528;1&#x6B21;
+      maxAsyncRequests: 5, // &#x6309;&#x9700;&#x52A0;&#x8F7D;&#x65F6;&#x5E76;&#x884C;&#x52A0;&#x8F7D;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;
+      maxInitialRequests: 3, // &#x5165;&#x53E3;js&#x6587;&#x4EF6;&#x6700;&#x5927;&#x5E76;&#x884C;&#x8BF7;&#x6C42;&#x6570;&#x91CF;
+      automaticNameDelimiter: &apos;~&apos;, // &#x540D;&#x79F0;&#x8FDE;&#x63A5;&#x7B26;
+      name: true, // &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x547D;&#x540D;&#x89C4;&#x5219;
+      cacheGroups: {
+        // &#x5206;&#x5272;chunk&#x7684;&#x7EC4;
+        // node_modules&#x6587;&#x4EF6;&#x4F1A;&#x88AB;&#x6253;&#x5305;&#x5230; vendors &#x7EC4;&#x7684;chunk&#x4E2D;&#x3002;--&gt; vendors~xxx.js
+        // &#x6EE1;&#x8DB3;&#x4E0A;&#x9762;&#x7684;&#x516C;&#x5171;&#x89C4;&#x5219;&#xFF0C;&#x5982;&#xFF1A;&#x5927;&#x5C0F;&#x8D85;&#x8FC7;30kb&#xFF0C;&#x81F3;&#x5C11;&#x88AB;&#x5F15;&#x7528;&#x4E00;&#x6B21;&#x3002;
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          // &#x4F18;&#x5148;&#x7EA7;
+          priority: -10
+        },
+        default: {
+          // &#x8981;&#x63D0;&#x53D6;&#x7684;chunk&#x6700;&#x5C11;&#x88AB;&#x5F15;&#x7528;2&#x6B21;
+          minChunks: 2,
+          // &#x4F18;&#x5148;&#x7EA7;
+          priority: -20,
+          // &#x5982;&#x679C;&#x5F53;&#x524D;&#x8981;&#x6253;&#x5305;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x548C;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x88AB;&#x63D0;&#x53D6;&#x7684;&#x6A21;&#x5757;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#xFF0C;&#x5C31;&#x4F1A;&#x590D;&#x7528;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x91CD;&#x65B0;&#x6253;&#x5305;&#x6A21;&#x5757;
+          reuseExistingChunk: true
+        } 
+      }*/
+    },
+    // &#x5C06;&#x5F53;&#x524D;&#x6A21;&#x5757;&#x7684;&#x8BB0;&#x5F55;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x7684;hash&#x5355;&#x72EC;&#x6253;&#x5305;&#x4E3A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6; runtime
+    // &#x89E3;&#x51B3;&#xFF1A;&#x4FEE;&#x6539;a&#x6587;&#x4EF6;&#x5BFC;&#x81F4;b&#x6587;&#x4EF6;&#x7684;contenthash&#x53D8;&#x5316;
+    runtimeChunk: {
+      name: entrypoint =&gt; `runtime-${entrypoint.name}`
+    },
+    minimizer: [ 
+      // &#x914D;&#x7F6E;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x7684;&#x538B;&#x7F29;&#x65B9;&#x6848;&#xFF1A;js&#x548C;css
+      new TerserWebpackPlugin({
+        // &#x5F00;&#x542F;&#x7F13;&#x5B58;
+        cache: true,
+        // &#x5F00;&#x542F;&#x591A;&#x8FDB;&#x7A0B;&#x6253;&#x5305;
+        parallel: true,
+        // &#x542F;&#x52A8;source-map
+        sourceMap: true
+      })
+    ]
+  }
+}
+</code></pre><p>&#x672C;&#x7AE0;&#x7ED3;&#x675F;&#xFF01;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../webpack - devServer详细配置/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: webpack - devServer详细配置">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"webpack - optimization详细配置","level":"1.37","depth":1,"previous":{"title":"webpack - devServer详细配置","level":"1.36","depth":1,"path":"webpack - devServer详细配置/README.md","ref":"webpack - devServer详细配置/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"webpack - optimization详细配置/README.md","mtime":"2021-04-12T01:42:14.234Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-12T10:03:02.981Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

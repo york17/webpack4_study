@@ -1,0 +1,731 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>webpack - devServer · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../webpack - 开发环境配置/" />
+    
+    
+    <link rel="prev" href="../webpack - 打包iconfont文件/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    webpack4学习记录笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../webpack4是个什么东西/">
+            
+                <a href="../webpack4是个什么东西/">
+            
+                    
+                    webpack是个什么东西
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../webpack五个核心概念/">
+            
+                <a href="../webpack五个核心概念/">
+            
+                    
+                    webpack五个核心概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../webpack初体验/">
+            
+                <a href="../webpack初体验/">
+            
+                    
+                    webpack初体验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../webpack样式资源打包/">
+            
+                <a href="../webpack样式资源打包/">
+            
+                    
+                    webpack样式资源打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../webpack - html资源打包/">
+            
+                <a href="../webpack - html资源打包/">
+            
+                    
+                    webpack - html资源打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../webpack - 图片资源打包/">
+            
+                <a href="../webpack - 图片资源打包/">
+            
+                    
+                    webpack - 图片资源打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../webpack - 自动清除上一次构建目录文件/">
+            
+                <a href="../webpack - 自动清除上一次构建目录文件/">
+            
+                    
+                    webpack - 自动清除上一次构建目录文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../webpack - 自定义打包文件名/">
+            
+                <a href="../webpack - 自定义打包文件名/">
+            
+                    
+                    webpack - 自定义打包文件名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../webpack - 打包iconfont文件/">
+            
+                <a href="../webpack - 打包iconfont文件/">
+            
+                    
+                    webpack - 打包iconfont文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    webpack - devServer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../webpack - 开发环境配置/">
+            
+                <a href="../webpack - 开发环境配置/">
+            
+                    
+                    webpack - 开发环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../webpack - 提取css生成文件/">
+            
+                <a href="../webpack - 提取css生成文件/">
+            
+                    
+                    webpack - 提取css生成文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../webpack - css兼容性处理/">
+            
+                <a href="../webpack - css兼容性处理/">
+            
+                    
+                    webpack - css兼容性处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../webpack - css压缩/">
+            
+                <a href="../webpack - css压缩/">
+            
+                    
+                    webpack - css压缩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../webpack - eslint/">
+            
+                <a href="../webpack - eslint/">
+            
+                    
+                    webpack - eslint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../webpack - js兼容性处理/">
+            
+                <a href="../webpack - js兼容性处理/">
+            
+                    
+                    webpack - js兼容性处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../webpack - js和html压缩/">
+            
+                <a href="../webpack - js和html压缩/">
+            
+                    
+                    webpack - js和html压缩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../webpack - 生产环境配置/">
+            
+                <a href="../webpack - 生产环境配置/">
+            
+                    
+                    webpack - 生产环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../webpack - 性能优化介绍/">
+            
+                <a href="../webpack - 性能优化介绍/">
+            
+                    
+                    webpack - 性能优化介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../webpack - HMR性能优化/">
+            
+                <a href="../webpack - HMR性能优化/">
+            
+                    
+                    webpack - HMR性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../webpack - source-map/">
+            
+                <a href="../webpack - source-map/">
+            
+                    
+                    webpack - source-map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="../webpack - oneOf/">
+            
+                <a href="../webpack - oneOf/">
+            
+                    
+                    webpack - oneOf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="../webpack - 缓存/">
+            
+                <a href="../webpack - 缓存/">
+            
+                    
+                    webpack - 缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="../webpack - tree shaking/">
+            
+                <a href="../webpack - tree shaking/">
+            
+                    
+                    webpack - tree shaking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="../webpack - code split/">
+            
+                <a href="../webpack - code split/">
+            
+                    
+                    webpack - code split
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" data-path="../webpack - js懒加载和预加载/">
+            
+                <a href="../webpack - js懒加载和预加载/">
+            
+                    
+                    webpack - js懒加载和预加载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" data-path="../webpack - 多进程打包/">
+            
+                <a href="../webpack - 多进程打包/">
+            
+                    
+                    webpack - 多进程打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.30" data-path="../webpack - externals/">
+            
+                <a href="../webpack - externals/">
+            
+                    
+                    webpack - externals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.31" data-path="../webpack - dll/">
+            
+                <a href="../webpack - dll/">
+            
+                    
+                    webpack - dll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.32" data-path="../webpack - entry详细配置/">
+            
+                <a href="../webpack - entry详细配置/">
+            
+                    
+                    webpack - entry详细配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.33" data-path="../webpack - output详细配置/">
+            
+                <a href="../webpack - output详细配置/">
+            
+                    
+                    webpack - output详细配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.34" data-path="../webpack - module详细配置/">
+            
+                <a href="../webpack - module详细配置/">
+            
+                    
+                    webpack - module详细配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.35" data-path="../webpack - resolve详细配置/">
+            
+                <a href="../webpack - resolve详细配置/">
+            
+                    
+                    webpack - resolve详细配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.36" data-path="../webpack - devServer详细配置/">
+            
+                <a href="../webpack - devServer详细配置/">
+            
+                    
+                    webpack - devServer详细配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.37" data-path="../webpack - optimization详细配置/">
+            
+                <a href="../webpack - optimization详细配置/">
+            
+                    
+                    webpack - optimization详细配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >webpack - devServer</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="webpack---devserver">webpack - devServer</h1>
+<p>devServer &#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x7528;&#x6765;&#x81EA;&#x52A8;&#x5316;&#x7F16;&#x8BD1;&#x3001;&#x81EA;&#x52A8;&#x6D4F;&#x89C8;&#x5668;&#x3001;&#x81EA;&#x52A8;&#x5237;&#x65B0;&#x6D4F;&#x89C8;&#x5668;&#x7B49;&#x3002;</p>
+<p>&#x907F;&#x514D;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x90FD;&#x91CD;&#x65B0;&#x6784;&#x5EFA;&#x3002;</p>
+<ul>
+<li>&#x7279;&#x70B9;&#xFF1A;&#x53EA;&#x4F1A;&#x5728;&#x5185;&#x5B58;&#x7F16;&#x8BD1;&#x6253;&#x5305;&#xFF0C;&#x4E0D;&#x4F1A;&#x6709;&#x4EFB;&#x4F55;&#x8F93;&#x51FA;&#xFF1B;</li>
+<li>&#x542F;&#x52A8;devServer&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;&#xFF0C;<code>webpack-dev-server</code>;</li>
+</ul>
+<p>&#x5B89;&#x88C5; <code>webpack-dev-server</code></p>
+<p><code>npm install webpack-dev-server -D</code></p>
+<p>&#x5728;<code>webpack.config.js</code>&#x4E2D;&#x914D;&#x7F6E;devServer&#xFF0C;&#x5B83;&#x4E0D;&#x5C5E;&#x4E8E;&#x4E4B;&#x524D;&#x8BF4;&#x7684;&#x4E94;&#x4E2A;&#x6838;&#x5FC3;&#xFF0C;</p>
+<pre><code>  devServer: {
+    contentBase: path.join(__dirname, &apos;dist&apos;),
+    // &#x91C7;&#x7528;gzip&#x538B;&#x7F29;
+    compress: true,
+    port: 8000,
+  }
+</code></pre><ul>
+<li>contentBase - &#x544A;&#x8BC9;&#x670D;&#x52A1;&#x5668;&#x5185;&#x5BB9;&#x7684;&#x6765;&#x6E90;&#x3002;&#x4EC5;&#x5728;&#x9700;&#x8981;&#x63D0;&#x4F9B;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x65F6;&#x624D;&#x8FDB;&#x884C;&#x914D;&#x7F6E;;</li>
+<li>compress - &#x4E3A;&#x6BCF;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x5F00;&#x542F;gzip&#x538B;&#x7F29;&#xFF1B;</li>
+<li>port - &#x4FA6;&#x542C;&#x6307;&#x5B9A;&#x7AEF;&#x53E3;&#x53F7;&#xFF1B;</li>
+</ul>
+<p>&#x542F;&#x52A8;<code>webpack-dev-server</code>&#x4F7F;&#x7528;&#x547D;&#x4EE4;<code>npx webpack-dev-server</code></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x63A7;&#x5236;&#x53F0;&#xFF0C;&#x6709;&#x76F8;&#x5173;&#x8F93;&#x51FA;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x518D;&#x6765;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8BBF;&#x95EE; <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a></p>
+<p>&#x63A5;&#x4E0B;&#x91CC;&#x5F53;&#x6211;&#x4EEC;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EA;&#x8981;&#x4FDD;&#x5B58;&#xFF0C;devServer&#x5C31;&#x4F1A;&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#xFF0C;&#x5E76;&#x4E14;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x81EA;&#x52A8;&#x5237;&#x65B0;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x8981;&#x81EA;&#x52A8;&#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x52A0;&#x5165;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code>  devServer: {
+    contentBase: path.join(__dirname, &apos;dist&apos;),
+    // &#x91C7;&#x7528;gzip&#x538B;&#x7F29;
+    compress: true,
+    port: 8000,
+    // &#x81EA;&#x52A8;&#x6253;&#x5F00;&#x9ED8;&#x8BA4;&#x6D4F;&#x89C8;&#x5668;
+    open: true,
+  }
+</code></pre><p>&#x672C;&#x7AE0;&#x7ED3;&#x675F;&#xFF01;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../webpack - 打包iconfont文件/" class="navigation navigation-prev " aria-label="Previous page: webpack - 打包iconfont文件">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../webpack - 开发环境配置/" class="navigation navigation-next " aria-label="Next page: webpack - 开发环境配置">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"webpack - devServer","level":"1.12","depth":1,"next":{"title":"webpack - 开发环境配置","level":"1.13","depth":1,"path":"webpack - 开发环境配置/README.md","ref":"webpack - 开发环境配置/README.md","articles":[]},"previous":{"title":"webpack - 打包iconfont文件","level":"1.11","depth":1,"path":"webpack - 打包iconfont文件/README.md","ref":"webpack - 打包iconfont文件/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"webpack - devServer/README.md","mtime":"2021-04-12T01:42:14.229Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-12T10:03:02.981Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
