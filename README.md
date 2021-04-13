@@ -12,7 +12,13 @@
 
 
 
-代码地址：[项目代码](https://github.com/york17/webpack4_study/tree/main)下的`demo_code`
+代码地址：
+
+- [项目代码](https://github.com/york17/webpack4_study/tree/main)下的`demo_code`
+
+书籍地址：
+
+- [书籍地址](https://york17.github.io/webpack4_study/)
 
 
 
